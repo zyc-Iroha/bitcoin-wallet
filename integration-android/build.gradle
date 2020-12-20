@@ -6,6 +6,7 @@ dependencies {
     compile('com.google.android:android:4.0.1.2') {
         transitive false
     }
+
 }
 
 sourceSets {
