@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * @author Andreas Schildbach
  */
-public class WalletUtilsTest {
+public class WalletMainTest {
     @Test
     public void restoreWalletFromProtobufOrBase58() throws Exception {
         WalletUtils.restoreWalletFromProtobuf(getClass().getResourceAsStream("backup-protobuf-testnet"),
