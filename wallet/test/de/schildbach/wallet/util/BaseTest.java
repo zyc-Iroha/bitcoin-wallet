@@ -25,7 +25,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author Andreas Schildbach
  */
-public class Base43Test {
+public class BaseTest {
     @Test
     public void encode() throws Exception {
         assertEquals("", Base43.encode(new byte[0]));

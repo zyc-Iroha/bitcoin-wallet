@@ -15,11 +15,13 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.util;
+package wallet.graphtest;
 
 import org.junit.Test;
 
 import java.util.regex.Matcher;
+
+import de.schildbach.wallet.util.Formats;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
