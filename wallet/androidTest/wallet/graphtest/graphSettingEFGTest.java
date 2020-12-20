@@ -32,7 +32,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * @author Andreas Schildbach
  */
-public class FormatsTest {
+public class graphSettingEFGTest {
     @Test
     public void monetarySpannable() throws Exception {
         final Matcher single = Formats.PATTERN_MONETARY_SPANNABLE.matcher("0");

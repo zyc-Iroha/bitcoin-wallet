@@ -20,7 +20,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 
-public class CryptoTest {
+public class graphBitcoinCFGTest2 {
     private static final String PLAIN_TEXT = "plain text";
     private static final byte[] PLAIN_BYTES = PLAIN_TEXT.getBytes();
     private static final char[] PASSWORD = "password".toCharArray();

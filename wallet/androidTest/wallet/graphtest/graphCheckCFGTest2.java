@@ -20,7 +20,9 @@ import org.junit.runner.RunWith;
 import de.schildbach.wallet.R;
 import de.schildbach.wallet.ui.WalletActivity;
 
+import static androidx.test.InstrumentationRegistry.getInstrumentation;
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu;
 import static androidx.test.espresso.Espresso.pressBack;
 import static androidx.test.espresso.action.ViewActions.*;
 import static androidx.test.espresso.assertion.ViewAssertions.*;
@@ -30,13 +32,13 @@ import static org.hamcrest.Matchers.is;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class WalletActivityLogicTest1 {
+public class graphCheckCFGTest2 {
 
     @Rule
     public ActivityTestRule<WalletActivity> mActivityTestRule = new ActivityTestRule<>(WalletActivity.class);
 
     @Test
-    public void walletActivityLogicTest1() {
+    public void walletActivityLogicTest2() {
         ViewInteraction button = onView(
                 allOf(withId(android.R.id.button2), withText("Dismiss"),
                         childAtPosition(
@@ -56,6 +58,24 @@ public class WalletActivityLogicTest1 {
                         isDisplayed()));
         button2.perform(click());
 
+        ViewInteraction cardView = onView(
+                allOf(withId(R.id.request_coins_qr_card),
+                        childAtPosition(
+                                childAtPosition(
+                                        withClassName(is("android.widget.LinearLayout")),
+                                        1),
+                                1)));
+        cardView.perform(scrollTo(), click());
+
+        ViewInteraction cardView2 = onView(
+                allOf(withId(R.id.request_coins_qr_card),
+                        childAtPosition(
+                                childAtPosition(
+                                        withClassName(is("android.widget.LinearLayout")),
+                                        1),
+                                1)));
+        cardView2.perform(scrollTo(), click());
+
         ViewInteraction imageButton = onView(
                 allOf(withContentDescription("Navigate up"),
                         childAtPosition(
@@ -68,6 +88,33 @@ public class WalletActivityLogicTest1 {
         imageButton.perform(click());
 
         pressBack();
+
+        openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
+
+        ViewInteraction textView = onView(
+                allOf(withId(android.R.id.title), withText("Request to legacy address"),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(android.R.id.content),
+                                        0),
+                                0),
+                        isDisplayed()));
+        textView.perform(click());
+
+        ViewInteraction imageButton2 = onView(
+                allOf(withContentDescription("Navigate up"),
+                        childAtPosition(
+                                allOf(withClassName(is("android.widget.Toolbar")),
+                                        childAtPosition(
+                                                withClassName(is("com.android.internal.widget.ActionBarContainer")),
+                                                0)),
+                                0),
+                        isDisplayed()));
+        imageButton2.perform(click());
+
+        pressBack();
+
+        openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
 
         ViewInteraction button3 = onView(
                 allOf(withId(R.id.wallet_actions_send), withText("Send coins"),
@@ -88,7 +135,7 @@ public class WalletActivityLogicTest1 {
                                                 0)),
                                 3),
                         isDisplayed()));
-        autoCompleteTextView.perform(replaceText("fj"), closeSoftKeyboard());
+        autoCompleteTextView.perform(pressImeActionButton());
 
         ViewInteraction editText = onView(
                 allOf(withId(R.id.send_coins_amount_btc_edittext),
@@ -99,10 +146,10 @@ public class WalletActivityLogicTest1 {
                                                 0)),
                                 0),
                         isDisplayed()));
-        editText.perform(click());
+        editText.perform(pressImeActionButton());
 
         ViewInteraction autoCompleteTextView2 = onView(
-                allOf(withId(R.id.send_coins_receiving_address), withText("fj"),
+                allOf(withId(R.id.send_coins_receiving_address),
                         childAtPosition(
                                 allOf(withId(R.id.send_coins_payee_group),
                                         childAtPosition(
@@ -110,10 +157,10 @@ public class WalletActivityLogicTest1 {
                                                 0)),
                                 3),
                         isDisplayed()));
-        autoCompleteTextView2.perform(replaceText("www.baidu.com"));
+        autoCompleteTextView2.perform(replaceText(""), closeSoftKeyboard());
 
         ViewInteraction autoCompleteTextView3 = onView(
-                allOf(withId(R.id.send_coins_receiving_address), withText("www.baidu.com"),
+                allOf(withId(R.id.send_coins_receiving_address),
                         childAtPosition(
                                 allOf(withId(R.id.send_coins_payee_group),
                                         childAtPosition(
@@ -121,83 +168,7 @@ public class WalletActivityLogicTest1 {
                                                 0)),
                                 3),
                         isDisplayed()));
-        autoCompleteTextView3.perform(closeSoftKeyboard());
-
-        ViewInteraction autoCompleteTextView4 = onView(
-                allOf(withId(R.id.send_coins_receiving_address), withText("www.baidu.com"),
-                        childAtPosition(
-                                allOf(withId(R.id.send_coins_payee_group),
-                                        childAtPosition(
-                                                withClassName(is("android.widget.LinearLayout")),
-                                                0)),
-                                3),
-                        isDisplayed()));
-        autoCompleteTextView4.perform(click());
-
-        ViewInteraction autoCompleteTextView5 = onView(
-                allOf(withId(R.id.send_coins_receiving_address), withText("www.baidu.com"),
-                        childAtPosition(
-                                allOf(withId(R.id.send_coins_payee_group),
-                                        childAtPosition(
-                                                withClassName(is("android.widget.LinearLayout")),
-                                                0)),
-                                3),
-                        isDisplayed()));
-        autoCompleteTextView5.perform(longClick());
-
-        ViewInteraction autoCompleteTextView6 = onView(
-                allOf(withId(R.id.send_coins_receiving_address), withText("www.baidu.com"),
-                        childAtPosition(
-                                allOf(withId(R.id.send_coins_payee_group),
-                                        childAtPosition(
-                                                withClassName(is("android.widget.LinearLayout")),
-                                                0)),
-                                3),
-                        isDisplayed()));
-        autoCompleteTextView6.perform(click());
-
-        ViewInteraction autoCompleteTextView7 = onView(
-                allOf(withId(R.id.send_coins_receiving_address), withText("www.baidu.com"),
-                        childAtPosition(
-                                allOf(withId(R.id.send_coins_payee_group),
-                                        childAtPosition(
-                                                withClassName(is("android.widget.LinearLayout")),
-                                                0)),
-                                3),
-                        isDisplayed()));
-        autoCompleteTextView7.perform(click());
-
-        ViewInteraction autoCompleteTextView8 = onView(
-                allOf(withId(R.id.send_coins_receiving_address), withText("www.baidu.com"),
-                        childAtPosition(
-                                allOf(withId(R.id.send_coins_payee_group),
-                                        childAtPosition(
-                                                withClassName(is("android.widget.LinearLayout")),
-                                                0)),
-                                3),
-                        isDisplayed()));
-        autoCompleteTextView8.perform(click());
-
-        ViewInteraction autoCompleteTextView9 = onView(
-                allOf(withId(R.id.send_coins_receiving_address), withText("www.baidu.com"),
-                        childAtPosition(
-                                allOf(withId(R.id.send_coins_payee_group),
-                                        childAtPosition(
-                                                withClassName(is("android.widget.LinearLayout")),
-                                                0)),
-                                3),
-                        isDisplayed()));
-        autoCompleteTextView9.perform(longClick());
-
-        ViewInteraction linearLayout = onView(
-                allOf(withContentDescription("Copy"),
-                        childAtPosition(
-                                childAtPosition(
-                                        withClassName(is("android.widget.RelativeLayout")),
-                                        0),
-                                2),
-                        isDisplayed()));
-        linearLayout.perform(click());
+        autoCompleteTextView3.perform(pressImeActionButton());
     }
 
     private static Matcher<View> childAtPosition(

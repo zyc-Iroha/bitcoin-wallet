@@ -15,7 +15,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package de.schildbach.wallet.idmtest;
+package wallet.graphtest;
 
 import org.junit.Test;
 
@@ -32,7 +32,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * @author Andreas Schildbach
  */
-public class AddressTest {
+public class graphSettingLogicTest {
     @Test
     public void monetarySpannable() throws Exception {
         final Matcher single = Formats.PATTERN_MONETARY_SPANNABLE.matcher("0");

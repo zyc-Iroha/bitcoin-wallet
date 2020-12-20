@@ -32,7 +32,7 @@ import static org.hamcrest.Matchers.is;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class WalletActivityLogicTest2 {
+public class graphPaymentEFGTest {
 
     @Rule
     public ActivityTestRule<WalletActivity> mActivityTestRule = new ActivityTestRule<>(WalletActivity.class);

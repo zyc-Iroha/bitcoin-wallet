@@ -27,7 +27,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * @author Andreas Schildbach
  */
-public class BluetoothTest {
+public class graphPaymentLogicTest {
     @Test
     public void compressMac() {
         assertEquals("11223344556677", Bluetooth.compressMac("11:22:33:44:55:66:77"));
